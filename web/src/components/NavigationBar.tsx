@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Navbar, Nav, Container, Offcanvas } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { LinkContainer } from 'react-router-bootstrap';
+
 
 function Navigationbar() {
   const [isOpen, setOpen] = useState(false);
@@ -33,12 +34,16 @@ function Navigationbar() {
             ></Offcanvas.Header>
             <Offcanvas.Body>
               <Nav className="justify-content-end flex-grow-1 pe-0">
-                <Nav.Link onClick={() => setOpen(false)}>
-                  Home
-                </Nav.Link>
-                <Nav.Link onClick={() => setOpen(false)}>
-                  About
-                </Nav.Link>
+                <LinkContainer to='/'>
+                  <Nav.Link onClick={() => setOpen(false)}>
+                    Home
+                  </Nav.Link>
+                </LinkContainer>
+                <LinkContainer to='/'>
+                  <Nav.Link onClick={() => setOpen(false)}>
+                    About
+                  </Nav.Link>
+                </LinkContainer>
               </Nav>
             </Offcanvas.Body>
           </Navbar.Offcanvas>

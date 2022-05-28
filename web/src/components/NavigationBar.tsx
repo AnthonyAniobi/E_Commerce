@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Navbar, Nav, Container, Offcanvas } from 'react-bootstrap';
-import { LinkContainer } from 'react-router-bootstrap';
+import { NavLink } from 'react-router-dom';
+// import { LinkContainer } from 'react-router-bootstrap';
 
 
 function Navigationbar() {
@@ -16,7 +17,7 @@ function Navigationbar() {
       >
         <Container>
           <Navbar.Brand href="/">
-            <span className="d-block fs-1">E-Commerce</span>{" "}
+            <span className="d-block fs-1">Offcanvas</span>{" "}
           </Navbar.Brand>
           <Navbar.Toggle
             aria-controls="offcanvasNavbar"
@@ -25,7 +26,7 @@ function Navigationbar() {
           <Navbar.Offcanvas
             id="offcanvasNavbar"
             aria-labelledby="offcanvasNavbarLabel"
-            placement="start"
+            placement="end"
           >
             <Offcanvas.Header
               closeButton
@@ -34,16 +35,12 @@ function Navigationbar() {
             ></Offcanvas.Header>
             <Offcanvas.Body>
               <Nav className="justify-content-end flex-grow-1 pe-0">
-                <LinkContainer to='/'>
-                  <Nav.Link onClick={() => setOpen(false)}>
-                    Home
-                  </Nav.Link>
-                </LinkContainer>
-                <LinkContainer to='/'>
-                  <Nav.Link onClick={() => setOpen(false)}>
-                    About
-                  </Nav.Link>
-                </LinkContainer>
+                <NavLink to="/" onClick={() => setOpen(false)}>
+                  Home
+                </NavLink>
+                <NavLink to="about" onClick={() => setOpen(false)}>
+                  About
+                </NavLink>
               </Nav>
             </Offcanvas.Body>
           </Navbar.Offcanvas>
